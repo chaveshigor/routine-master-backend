@@ -25,6 +25,14 @@ services:
       - cache:/cache
     env_file:
       - '.env.docker'
+  mailcatcher:
+    restart: on-failure
+    image: dockage/mailcatcher:0.8.2
+    ports:
+    - "1080:1080"
+    - "1025:1025"
+    depends_on:
+      - 'web'
 volumes:
   postgres_data:
   bundle:

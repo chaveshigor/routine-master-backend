@@ -1,8 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  scope :api, defaults: { format: :json } do
+    scope :v1 do
+      devise_for :users, controllers: {
+        sessions: 'api/v1/users/sessions',
+        registrations: 'api/v1/users/registration',
+        skip: :sessions
+      }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+      namespace :users do
+        get '/', to: '/api/v1/users/registration#show'
+      end
+    end
+  end
 end
+
