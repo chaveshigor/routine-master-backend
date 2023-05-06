@@ -9,7 +9,7 @@ FactoryBot.define do
 
     trait :with_profile do
       after(:build) do |user|
-        user.profile = create(:profile)
+        user.profile = build(:profile)
         user.profile.firstname = Faker::Name.first_name
         user.profile.lastname = Faker::Name.last_name
       end

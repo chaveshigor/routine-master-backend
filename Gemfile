@@ -30,11 +30,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'mailcatcher'
+  gem 'pry-byebug'
   gem 'rspec-rails'
 end
 
 group :development do
-  gem 'pry-byebug'
   gem 'web-console'
 end
 

@@ -6,8 +6,8 @@ class ApplicationForm
   def rescue_errors
     ActiveRecord::Base.transaction do
       yield
-    rescue => exception
-      false
+    rescue
+      raise ActiveRecord::Rollback
     end
   end
 end

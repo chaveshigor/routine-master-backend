@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { create(:user) }
+  subject(:user) { create(:user, :with_profile) }
 
   describe 'associations' do
     it { should have_one(:profile) }

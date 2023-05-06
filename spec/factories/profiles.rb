@@ -9,7 +9,7 @@ FactoryBot.define do
 
     trait :with_user do
       after(:build) do |profile|
-        profile.user = create(:user)
+        profile.user = build(:user)
         profile.user.email = Faker::Internet.email
         profile.user.password = Faker::Internet.password(min_length: 8)
       end
