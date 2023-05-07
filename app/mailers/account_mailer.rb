@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountMailer < Devise::Mailer
-  default from: 'from@example.com'
+  default from: ENV['EMAIL_ADDRESS']
 
   def confirmation_instructions(*args)
     @user = args[0]
