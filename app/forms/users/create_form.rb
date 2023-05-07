@@ -10,6 +10,8 @@ module Users
     validates :firstname, presence: true
     validates :lastname, presence: true
 
+    validate :email_in_use?
+
     def submit
       return false if invalid?
 
@@ -31,6 +33,12 @@ module Users
       @profile = Profile.new
       @profile.assign_attributes(firstname: firstname, lastname: lastname, user: @user)
       @profile.save
+    end
+
+    def email_in_use?
+      return if User.find_by(email: email).blank?
+
+      errors.add(:email, 'in use')
     end
   end
 end

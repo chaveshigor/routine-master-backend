@@ -13,7 +13,12 @@ module Api
       end
 
       def current_user
-        jwt = request.headers.to_h['HTTP_AUTHORIZATION']&.split(' ')&.last
+        jwt = begin
+          response = request.headers.to_h['HTTP_AUTHORIZATION']&.split(' ')&.last
+          response = request.headers.to_h.dig('rack.request.query_hash', 'headers', 'Authorization')&.split(' ')&.last if response.blank?
+          response
+        end
+
         return nil if jwt.blank?
 
         payload, _header = ::JWT.decode jwt, ENV['DEVISE_JWT_SECRET_KEY'], true, { algorithm: 'HS256' }
