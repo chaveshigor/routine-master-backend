@@ -28,6 +28,7 @@ jobs:
       RAILS_ENV: test
       DATABASE_HOST: localhost
       DATABASE_PORT: 5432
+      DEVISE_JWT_SECRET_KEY: 6505e7c950e9c984a32351f2fac26414e1f95c8724f66ce47fd22054e020a5451021d35e82b5f5213489db48afd1fcafd21a2c1bec15db43bd5fc00bdbcf9034
 
     steps:
       - name: Checkout code
