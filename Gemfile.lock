@@ -101,8 +101,7 @@ GEM
       devise (~> 4.0)
       warden-jwt_auth (~> 0.6)
     diff-lcs (1.5.0)
-    dockerfile-rails (1.2.5)
-      rails
+    docile (1.4.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -258,6 +257,12 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sinatra (3.0.6)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -325,7 +330,6 @@ DEPENDENCIES
   debug
   devise (= 4.9.0)
   devise-jwt
-  dockerfile-rails (>= 1.2)
   dotenv-rails
   factory_bot_rails
   faker
@@ -341,6 +345,7 @@ DEPENDENCIES
   rspec-rails
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  simplecov
   sprockets-rails
   stimulus-rails
   turbo-rails
