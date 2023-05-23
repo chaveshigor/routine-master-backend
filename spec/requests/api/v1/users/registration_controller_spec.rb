@@ -12,6 +12,7 @@ RSpec.describe Api::V1::Users::RegistrationController, type: :controller do
 
       get :show, params: { headers: auth_headers }
 
+      
       expect(response.body).to eq(::UserSerializer.new(user).to_json)
     end
   end
